@@ -1,0 +1,108 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('/img/image.png'); background-size: cover; background-position: center;
+    margin: 0;
+    transition: background 0.5s ease-in-out;
+}
+
+.container {
+    background: rgba(255, 255, 255,0.6);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    width: 900px;
+    text-align: center;
+    transform: scale(0.95);
+    transition: transform 0.3s ease-in-out;
+}
+
+.container:hover {
+    transform: scale(1);
+}
+
+h2 {
+    font-weight: bold;
+    margin-bottom: 25px;
+    text-align: center;
+    color: #444;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-section {
+    width: 50%;
+    padding-right: 20px;
+    text-align: left;
+}
+
+.qr-container {
+    width: 50%;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin: 12px 0 5px;
+    font-weight: 600;
+    color: #555;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-sizing: border-box;
+    transition: all 0.3s ease-in-out;
+    font-size: 16px;
+    background: #fafafa;
+}
+
+input:focus, select:focus {
+    border-color: #ff758c;
+    box-shadow: 0 0 10px rgba(255, 117, 140, 0.5);
+    outline: none;
+    transform: scale(1.02);
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(90deg, #ff758c, #ff7eb3);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    background: linear-gradient(90deg, #ff7eb3, #ff758c);
+    box-shadow: 0 8px 20px rgba(255, 117, 140, 0.3);
+    transform: scale(1.05);
+}
+
+.qr-container img {
+    width: 160px;
+    height: 160px;
+    transition: transform 0.3s ease-in-out;
+}
