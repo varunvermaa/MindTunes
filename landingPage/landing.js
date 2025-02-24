@@ -1,20 +1,47 @@
 // Initialize Lucide icons
 lucide.createIcons();
 
-// Navbar scroll effect
+// Navbar movement effect - Moves with the scroll but remains at the top
 const navbar = document.querySelector('.navbar');
 const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('.nav-links');
 const menuIcon = document.querySelector('.menu-icon');
 const closeIcon = document.querySelector('.close-icon');
 
+let lastScrollY = window.scrollY;
+
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) {
-    navbar.classList.add('scrolled');
+  let currentScrollY = window.scrollY;
+
+  if (currentScrollY > lastScrollY) {
+    // Scrolling down → move navbar smoothly
+    navbar.style.transform = `translateY(${Math.min(currentScrollY, 0)}px)`;
   } else {
-    navbar.classList.remove('scrolled');
+    // Scrolling up → keep navbar at the top
+    navbar.style.transform = 'translateY(0)';
   }
+
+  lastScrollY = currentScrollY;
 });
+
+navbar.style.position = 'fixed';
+navbar.style.top = '0';
+navbar.style.left = '0';
+navbar.style.width = '100%';
+navbar.style.zIndex = '1000';
+
+
+// Select the logo container
+const mindtunesLogo = document.querySelector('.logo');
+
+// Scroll to top when the logo is clicked
+mindtunesLogo.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth' // Smooth scrolling effect
+  });
+});
+
 
 // Mobile menu toggle
 navToggle.addEventListener('click', () => {
